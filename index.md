@@ -5,6 +5,7 @@ layout: default
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
 [Link to pokemon.arg](./pokemonarg.html).
+[Link to pokemonarg/rock.html](pokemonarg/Rock.html).
 
 There should be whitespace between paragraphs.
 
