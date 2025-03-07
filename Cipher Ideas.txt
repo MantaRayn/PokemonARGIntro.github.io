@@ -1,0 +1,55 @@
+Number One: 
+when you take the plaintext you pick one letter or phase to act as the key, the more complex the phrase the easier it will be to crack
+it runs through a list of words and selects them to turn the short phrase into a sentence. each letter in this sentence has the specified numeric value of place in alphabet totaled and the modulo of that number divided by 26 is the value of the first letter
+to communicate the key it is embedded in the ciphertext as the first letter of the first word, but that could change
+
+---Steps---
+Materials, word list, plaintext encryption key.
+
+  Step One: conver the text into the numeric position in the alphabet                   Hello = Test
+  Step Two: determine the key you are going to use                                      Key = B
+  Step Three: use the large word list to encrypt                                        Word List: Pokemon Names
+  
+                              Encryption                                                         B   l   a   s   t   o   i   s   e
+first word is Blastoise. add the numeric value of all the letters up excluding B.                0, 12,  1,  19, 20, 15, 9,  19, 5 = 100 = n 
+to help with encryption we will use 2 variables...                                              26x + 20 = T 
+'N' for the current temporary total of the letters and                                          T = {46, 72, 98, 124...}
+'T' which is a matrix of what the number should be to encrypt the first letter
+when the key or in this case the letter 'P' shows up N should equal T.
+
+the phrase "Blastoise Huntail Igglybuff Bulbasaur" decrypts to KGPH
+
+=================================================     Step 1     ==================================================================== get number value of each letter
+b   l   a   s   t   o   i   s   e   h   u   n   t   a   i   l   i   g   g   l   y   b   u   f   f   b   u   l   b   a   s   a   u   r
+2,  12, 1, 19, 20, 15,  9, 19,  5,  8, 21, 14, 20, 1,  9,  12,  9,  7,  7, 12, 25   2, 21, 6,  6,   2, 21, 12,  2,  1,  19, 1, 21,  18
+
+=================================================     Step 2     ==================================================================== seperate them into groups when you see the letter 'B' and add
+B   l   a   s   t   o   i   s   e   h   u   n   t   a   i   l   i   g   g   l   y   B   u   f   f   B   u   l   B   a   s   a   u   r
+|,  12, 1, 19, 20, 15,  9, 19,  5,  8, 21, 14, 20, 1,  9,  12,  9,  7,  7, 12, 25  --, 21, 6,  6,  --, 21, 12, --,  1,  19, 1, 21,  18
+||=  =  =  =  =  =  =  =  =  =  =  =  =  =  =  =  =  =  =  =  =  =  =  =  =  =  =  || =  =  =  =  || =  =  =  || =  =  =  =  =  =  = ||
+                                245                                                     33               42         60
+
+  I have quite a few ideas for tweaks or modifications                                                   ======= Step 3 ========= modulo 26 and then Convert to letters
+  the First one being you subtract vowels instead of adding them                                                 11 7  16 8
+Second would be taking the last letter and multiplying/dividing by that letter                                       KGPH
+Third would be picking 2 letters. when you hit the first letter you have your total
+and the total in between that and the second letter is subtracted.it could also be that the
+only important part of the cipher is in between those 2 letters and the rest is just fluff
+
+                             DRAWBACKS
+Complicated
+Requires a long word list
+Not good for longer messages
+Would need to randomize word list order so its harder to decrypt
+easy to run into errors
+
+if you make it all the way through the word list
+{
+  find words that don't have that Key letter, add a random one
+ int i +1
+}
+repeat finding words
+
+if i=3 plaintext is too complex or word list is not long enough
+
+                          
